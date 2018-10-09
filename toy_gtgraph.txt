@@ -1,0 +1,15 @@
+c FILE          : toy_gtgraph.txt
+c No. of vertices   : 8
+c No. of directed edges : 7
+c Max. weight       : 1
+c Min. weight       : 1
+c A directed arc from u to v of weight w
+c is represented below as ' a  u  v  w '
+p sp 8 7
+a 0 1 1
+a 1 3 1
+a 1 4 1
+a 2 4 1
+a 2 5 1
+a 2 6 1
+a 2 7 1

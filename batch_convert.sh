@@ -13,17 +13,17 @@ file[12]="wiki_communication"
 file[13]="random"
 file[14]="RMAT"
 file[15]="twitter_mpi"
-file[16]="us_patent"
-file[17]="citeseer"
-file[18]="scale25"
+#file[16]="us_patent"
+#file[17]="citeseer"
+#file[18]="scale25"
 
 deal () {
+    echo python edge_list_to_GTgraph.py /mnt/raid0_huge/yuede/data/${file[$1]}/edge_list.txt /mnt/raid0_huge/yuede/data/${file[$1]}/gtgraph.txt
     
-    echo python edge_list_to_matrix_market.py /mnt/raid0_huge/yuede/data/${file[$1]}/edge_list.txt /mnt/raid0_huge/yuede/data/${file[$1]}/matrix_market.txt
-    python edge_list_to_matrix_market.py /mnt/raid0_huge/yuede/data/${file[$1]}/edge_list.txt /mnt/raid0_huge/yuede/data/${file[$1]}/matrix_market.txt
+    python edge_list_to_GTgraph.py /mnt/raid0_huge/yuede/data/${file[$1]}/edge_list.txt /mnt/raid0_huge/yuede/data/${file[$1]}/gtgraph.txt
 
 }
-for index in `seq 1 18`;
+for index in `seq 1 15`;
 do
     deal $index
 done
