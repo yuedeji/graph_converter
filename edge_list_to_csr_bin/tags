@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+cc	./Makefile	/^cc = "$(shell which g++)" $/;"	m
+deps	./Makefile	/^deps = $(wildcard ..\/..\/lib\/*.h) \\$/;"	m
+exe	./Makefile	/^exe = pre_proc$/;"	m
+flags	./Makefile	/^flags = -O3 #-I..\/..\/lib\/ -I. -laio -fopenmp $/;"	m
+fsize	./tuple_text_to_bin.cpp	/^inline off_t fsize(const char *filename) {$/;"	f
+fsize	./txt_to_bin_bw.cpp	/^inline off_t fsize(const char *filename) {$/;"	f
+fsize	./txt_to_bin_bw_int.cpp	/^inline off_t fsize(const char *filename) {$/;"	f
+fsize	./txt_to_bin_fw.cpp	/^inline off_t fsize(const char *filename) {$/;"	f
+fsize	./txt_to_bin_fw_int.cpp	/^inline off_t fsize(const char *filename) {$/;"	f
+index_t	./tuple_text_to_bin.cpp	/^typedef long int index_t;$/;"	t	file:
+index_t	./txt_to_bin_bw.cpp	/^typedef unsigned long long int index_t;$/;"	t	file:
+index_t	./txt_to_bin_bw_int.cpp	/^typedef int index_t;$/;"	t	file:
+index_t	./txt_to_bin_fw.cpp	/^typedef unsigned long long int index_t;$/;"	t	file:
+index_t	./txt_to_bin_fw_int.cpp	/^typedef int index_t;$/;"	t	file:
+main	./tuple_text_to_bin.cpp	/^main(int argc, char** argv){$/;"	f
+main	./txt_to_bin_bw.cpp	/^main(int argc, char** argv){$/;"	f
+main	./txt_to_bin_bw_int.cpp	/^main(int argc, char** argv){$/;"	f
+main	./txt_to_bin_fw.cpp	/^main(int argc, char** argv){$/;"	f
+main	./txt_to_bin_fw_int.cpp	/^main(int argc, char** argv){$/;"	f
+objs	./Makefile	/^objs = $(patsubst %.cpp,%.o,$(wildcard ..\/..\/lib\/*.cpp)) \\$/;"	m
+vertex_t	./tuple_text_to_bin.cpp	/^typedef int vertex_t;$/;"	t	file:
+vertex_t	./txt_to_bin_bw.cpp	/^typedef unsigned long long int vertex_t;$/;"	t	file:
+vertex_t	./txt_to_bin_bw_int.cpp	/^typedef int vertex_t;$/;"	t	file:
+vertex_t	./txt_to_bin_fw.cpp	/^typedef unsigned long long int vertex_t;$/;"	t	file:
+vertex_t	./txt_to_bin_fw_int.cpp	/^typedef int vertex_t;$/;"	t	file:

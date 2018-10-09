@@ -1,0 +1,20 @@
+./graph_clean /mnt/disk_huge/yuede/data/pokec/out.soc-pokec-relationships-no-head /mnt/disk_huge/yuede/data/pokec/out.soc-pokec-relationships-no-head-clean
+
+./graph_clean /mnt/disk_huge/yuede/data/baidu/out.zhishi-baidu-internallink_no_head /mnt/disk_huge/yuede/data/baidu/out.zhishi-baidu-internallink_no_head_clean
+
+./graph_clean /mnt/disk_huge/yuede/data/dbpedia/out.dbpedia-all_no_head /mnt/disk_huge/yuede/data/dbpedia/out.dbpedia-all_no_head_clean
+
+./graph_clean /mnt/disk_huge/yuede/data/facebook/facebook.tuple.dat /mnt/disk_huge/yuede/data/facebook/facebook.tuple.dat_clean
+
+./graph_clean /mnt/disk_huge/yuede/data/flickr-growth/out.flickr-growth.transformed /mnt/disk_huge/yuede/data/flickr-growth/out.flickr-growth.transformed_clean
+
+./graph_clean /mnt/disk_huge/yuede/data/livejournal/out.soc-LiveJournal1_no_head /mnt/disk_huge/yuede/data/livejournal/out.soc-LiveJournal1_no_head_clean
+
+./graph_clean /mnt/disk_huge/yuede/data/pokec/out.soc-pokec-relationships-no-head /mnt/disk_huge/yuede/data/pokec/out.soc-pokec-relationships-no-head_clean
+
+./graph_clean /mnt/disk_huge/yuede/data/wikipedia_en/out.dbpedia-link_no_head /mnt/disk_huge/yuede/data/wikipedia_en/out.dbpedia-link_no_head_clean
+
+./graph_clean /mnt/disk_huge/yuede/data/wikipedia_link_en/out.wikipedia_link_en_no_head /mnt/disk_huge/yuede/data/wikipedia_link_en/out.wikipedia_link_en_no_head_clean
+
+./graph_clean /mnt/disk_huge/yuede/data/zhishi-hudong-relatedpages/out.zhishi-hudong-relatedpages-no-head /mnt/disk_huge/yuede/data/zhishi-hudong-relatedpages/out.zhishi-hudong-relatedpages-no-head_clean
+
