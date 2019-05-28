@@ -24,9 +24,12 @@ def main(graph_folder, output_folder):
     graph_list = os.listdir(graph_folder)
 #    print(pgr_list)
     for graph in graph_list:
-        if graph.endswith("txt"):
+#        if graph.endswith("txt"):
+#            input_file = os.path.join(graph_folder, graph)
+#            output_file = os.path.join(output_folder, graph[:-3] + "txt")
+        if graph.endswith("graph"):
             input_file = os.path.join(graph_folder, graph)
-            output_file = os.path.join(output_folder, graph[:-3] + "txt")
+            output_file = os.path.join(output_folder, graph[:-5] + "graph")
             if os.path.isfile(output_file):
                 continue
             print input_file

@@ -11,8 +11,10 @@
 
 using namespace std;
 
-typedef unsigned long long int vertex_t;
-typedef unsigned long long int index_t;
+//typedef unsigned long long int vertex_t;
+//typedef unsigned long long int index_t;
+typedef unsigned int vertex_t;
+typedef unsigned int index_t;
 
 //typedef struct packed_edge {
 //	  long int v0;
@@ -58,7 +60,7 @@ main(int argc, char** argv){
 	size_t edge_count=0;
 	size_t vert_count;
 	vertex_t v_max = 0;
-	vertex_t v_min = 999999;//as infinity
+	vertex_t v_min = 0x7fffffff;//as infinity
 	vertex_t a;
 	while(next<file_size){
 		char* sss=ss+curr;
@@ -89,19 +91,23 @@ main(int argc, char** argv){
 	cout<<"edge count: "<<edge_count<<endl;
 	cout<<"vert count: "<<vert_count<<endl;
 	//step 2. each file size
-	int fd4 = open( "fw_adjacent.bin",O_CREAT|O_RDWR,00666 );
+	//int fd4 = open( "fw_adjacent.bin",O_CREAT|O_RDWR,00666 );
+	int fd4 = open( "undirected_adjacent.bin",O_CREAT|O_RDWR,00666 );
 	ftruncate(fd4, edge_count*sizeof(vertex_t));
 	vertex_t* adj = (vertex_t*)mmap(NULL,edge_count*sizeof(vertex_t),PROT_READ|PROT_WRITE,MAP_SHARED,fd4,0);
 	
-	int fd5 = open( "head.bin",O_CREAT|O_RDWR,00666 );
+	//int fd5 = open( "head.bin",O_CREAT|O_RDWR,00666 );
+	int fd5 = open( "undirected_head.bin",O_CREAT|O_RDWR,00666 );
 	ftruncate(fd5, edge_count*sizeof(vertex_t));
 	vertex_t* head = (vertex_t*)mmap(NULL,edge_count*sizeof(vertex_t),PROT_READ|PROT_WRITE,MAP_SHARED,fd5,0);
 
-	int fd2 = open( "out_degree.bin",O_CREAT|O_RDWR,00666 );
+	//int fd2 = open( "out_degree.bin",O_CREAT|O_RDWR,00666 );
+	int fd2 = open( "undirected_out_degree.bin",O_CREAT|O_RDWR,00666 );
 	ftruncate(fd2, vert_count*sizeof(index_t));
 	index_t* degree = (index_t*)mmap(NULL,vert_count*sizeof(index_t),PROT_READ|PROT_WRITE,MAP_SHARED,fd2,0);
 	
-	int fd3 = open( "fw_begin.bin",O_CREAT|O_RDWR,00666 );
+	//int fd3 = open( "fw_begin.bin",O_CREAT|O_RDWR,00666 );
+	int fd3 = open( "undirected_begin.bin",O_CREAT|O_RDWR,00666 );
 	ftruncate(fd3, (vert_count+1)*sizeof(index_t));
 	index_t* begin  = (index_t*)mmap(NULL,(vert_count+1)*sizeof(index_t),PROT_READ|PROT_WRITE,MAP_SHARED,fd3,0);
 	
@@ -186,7 +192,7 @@ main(int argc, char** argv){
 	
 	//step 5
 	//print output as a test
-	for(size_t i=0; i<=vert_count && i<8; i++){
+	for(size_t i=0; i<=vert_count && i<5; i++){
 //	for(size_t i=0; i<8; i++){
 		cout<<begin[i]<<" "<<degree[i]<<" ";
 		for(index_t j=0; j<degree[i]; j++){

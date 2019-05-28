@@ -29,9 +29,9 @@ def get_undirected_edge_list(input_file):
                 if (v, u) not in edge_set:
                     undirected_edge_list.append((v, u))
                     edge_set.add((v, u))
-#            index += 1
-#            if index > 100:
-#                break
+            index += 1
+            if index % 1000000 == 0:
+                print index
 
     return undirected_edge_list, n
 
