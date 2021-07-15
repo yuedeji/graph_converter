@@ -12,6 +12,8 @@ def dump_dict_to_file(edge_dict, output_file):
 
 def main(input_folder, output_folder):
     for file_one in os.listdir(input_folder):
+        if not file_one.endswith("txt"):
+            continue
         file_path = os.path.join(input_folder, file_one)
         output_file = os.path.join(output_folder, file_one)
 
