@@ -3,7 +3,7 @@ import sys
 from sets import Set
 
 
-def get_undirected_adj_list(input_file):
+def get_undirected_edge_list(input_file):
 
     undirected_edge_list = []
     edge_set = Set()
@@ -11,62 +11,43 @@ def get_undirected_adj_list(input_file):
     n = 0
     m = 0
     index = 0
-
-    adj_dict = {}
     with open(input_file, 'r') as fp:
         for raw_line in fp:
             line_list = raw_line.strip().split()
             if is_head:
                 n = int(line_list[0])
-#                m = int(line_list[1])
+                m = int(line_list[1])
                 is_head = False
             else:
                 u = int(line_list[0])
                 v = int(line_list[1])
 
-                if u not in adj_dict:
-                    adj_dict[u] = {}
-                if v not in adj_dict[u]:
-                    adj_dict[u][v] = 1
-                    m += 1
+                if (u, v) not in edge_set:
+                    undirected_edge_list.append((u, v))
+                    edge_set.add((u, v))
 
-
-                if v not in adj_dict:
-                    adj_dict[v] = {}
-
-                if u not in adj_dict[v]:
-                    adj_dict[v][u] = 1
-                    m += 1
-
-#                if (u, v) not in edge_set:
-#                    undirected_edge_list.append((u, v))
-#                    edge_set.add((u, v))
-#
-#                if (v, u) not in edge_set:
-#                    undirected_edge_list.append((v, u))
-#                    edge_set.add((v, u))
+                if (v, u) not in edge_set:
+                    undirected_edge_list.append((v, u))
+                    edge_set.add((v, u))
             index += 1
             if index % 1000000 == 0:
                 print index
 
-    return adj_dict, n, m
-#    return undirected_edge_list, n
+    return undirected_edge_list, n
 
-def dump_adj_dict_to_file(adj_dict, n, m, output_file):
+def dump_undirected_edge_list_to_file(undirected_edge_list, n, output_file):
     with open(output_file, "w") as fp:
-        fp.write('%{} {}\n'.format(n, m))
-        for v_adj in sorted(adj_dict.keys()):
-            for w in sorted(adj_dict[v_adj].keys()):
-                fp.write('{} {}\n'.format(v_adj, w))
-
+        fp.write('%{} {}\n'.format(n, len(undirected_edge_list)))
+        for one in sorted(undirected_edge_list):
+            fp.write('{} {}\n'.format(one[0], one[1]))
 
     print("new edge list is saved to {}".format(output_file))
 
 def directed_to_undirected(input_file, output_file):
 
-    adj_dict, n, m = get_undirected_adj_list(input_file)
+    undirected_edge_list, n = get_undirected_edge_list(input_file)
 
-    dump_adj_dict_to_file(adj_dict, n, m, output_file)
+    dump_undirected_edge_list_to_file(undirected_edge_list, n, output_file)
 
 #    fp_out = open(output_file, 'w')
 #    is_head = True
